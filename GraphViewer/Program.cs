@@ -15,6 +15,10 @@ namespace GraphViewer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new SplashScreen());
+
+            // run main menu.  
+
             Application.Run(new Form1());
         }
     }

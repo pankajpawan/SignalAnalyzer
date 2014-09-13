@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.IO;
 using System.Data.SQLite;
+using DBManager = DatabaseManager.DatabaseManager;
 
 namespace GraphViewer
 {
@@ -18,7 +19,7 @@ namespace GraphViewer
         public Form1()
         {
             InitializeComponent();
-             InitializeOpenFileDialog();
+            InitializeOpenFileDialog();
         }
 
         private void InitializeOpenFileDialog()

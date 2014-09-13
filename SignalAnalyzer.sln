@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphViewer", "GraphViewer\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager", "DatabaseManager\DatabaseManager.csproj", "{9336227D-4A31-4E09-8BA8-6398625E2561}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{FD6B9632-FD06-468F-9E27-A1E6B4CD5385}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,16 @@ Global
 		{9336227D-4A31-4E09-8BA8-6398625E2561}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9336227D-4A31-4E09-8BA8-6398625E2561}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9336227D-4A31-4E09-8BA8-6398625E2561}.Release|x86.ActiveCfg = Release|Any CPU
+		{FD6B9632-FD06-468F-9E27-A1E6B4CD5385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD6B9632-FD06-468F-9E27-A1E6B4CD5385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD6B9632-FD06-468F-9E27-A1E6B4CD5385}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FD6B9632-FD06-468F-9E27-A1E6B4CD5385}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FD6B9632-FD06-468F-9E27-A1E6B4CD5385}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FD6B9632-FD06-468F-9E27-A1E6B4CD5385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD6B9632-FD06-468F-9E27-A1E6B4CD5385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD6B9632-FD06-468F-9E27-A1E6B4CD5385}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FD6B9632-FD06-468F-9E27-A1E6B4CD5385}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FD6B9632-FD06-468F-9E27-A1E6B4CD5385}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
