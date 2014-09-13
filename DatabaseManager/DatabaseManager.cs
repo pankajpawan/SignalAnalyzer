@@ -9,52 +9,70 @@ namespace DatabaseManager
 {
     public class DatabaseManager
     {
-        SQLiteConnection m_dbConnection;
+        private static DatabaseManager _instance = null;
+        private SQLiteConnection dbConnection = null;
+        private string database = null;
 
-        private void createDatabase(string databasename, string connectionString)
+        private static string connectionStingTemplate = "Data Source={0};Version=3;Password=\"{1}\";";
+
+        private DatabaseManager(string databaseName) {
+            this.database = databaseName;
+            this.dbConnection = null;
+        }
+
+        public static DatabaseManager getInstance( string databaseName )
         {
-            if (File.Exists("GraphViewer.sqlite") == false)
+            if (_instance == null || _instance.database != databaseName )
+                _instance = new DatabaseManager( databaseName );
+            return _instance;
+        }
+
+        private void createDatabase()
+        {
+            if (!File.Exists(this.database))
             {
                 Console.WriteLine("Trying to create database....\n");
-                SQLiteConnection.CreateFile("GraphViewer.sqlite");
+                SQLiteConnection.CreateFile(this.database);
                 Console.WriteLine("created database.\n");
             }
             else
             {
                 Console.WriteLine("database already exists\n");
             }
-            connectToDatabase();
-            createTable();
-            CloseConnection();
         }
 
-        private void connectToDatabase()
+        private void connectToDatabase(string password="")
         {
-            Console.WriteLine("Trying to connect to database....\n");
-            m_dbConnection = new SQLiteConnection("Data Source=GraphViewer.sqlite;Version=3;");
-            m_dbConnection.Open();
-            Console.WriteLine("Connected to database....\n");
+            if (this.dbConnection == null || this.dbConnection.State.ToString() != "Open" )
+            {
+                Console.WriteLine("Trying to connect to database....\n");
+                this.dbConnection = new SQLiteConnection(string.Format(connectionStingTemplate, this.database, password));
+                this.dbConnection.Open();
+                Console.WriteLine("Connected to database....\n");
+            }
+            
         }
 
         private void createTable()
         {
+            //check that connection to db exists
+            if (this.dbConnection == null)
+                connectToDatabase(this.database);
             Console.WriteLine("Trying to create table....\n");
             string sql = "create table IF NOT EXISTS pipeline_data (ID INTEGER PRIMARY KEY AUTOINCREMENT, survey_date DATETIIME not null," +
                                                                     "pipeline_id int not null, time BLOB not null, signal BLOB not null)";
-            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+            SQLiteCommand command = new SQLiteCommand(sql, this.dbConnection);
             command.ExecuteNonQuery();
             Console.WriteLine("Table created.\n");
-            Console.WriteLine("Trying to close connection....\n");
-            CloseConnection();
-            Console.WriteLine("Connection closed.\n");
+            
         }
 
         private void CloseConnection()
         {
-            if (m_dbConnection != null)
+            if (this.dbConnection != null)
             {
-                m_dbConnection.Close();
-                m_dbConnection = null;
+                this.dbConnection.Close();
+                this.dbConnection = null;
             }
         }
 
