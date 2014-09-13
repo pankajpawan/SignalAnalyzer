@@ -76,12 +76,5 @@ namespace DatabaseManager
             }
         }
 
-        public byte[] getByteArray(Double[] data)
-        {
-            object blob = data;
-            if (blob == null) return null;
-            byte[] arData = (byte[])blob;
-            return arData;
-        }
     }
 }
