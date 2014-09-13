@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphViewer", "GraphViewer\GraphViewer.csproj", "{E24FE321-EF7B-4D4E-8084-58E92BD36AF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager", "DatabaseManager\DatabaseManager.csproj", "{9336227D-4A31-4E09-8BA8-6398625E2561}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E24FE321-EF7B-4D4E-8084-58E92BD36AF4}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E24FE321-EF7B-4D4E-8084-58E92BD36AF4}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{E24FE321-EF7B-4D4E-8084-58E92BD36AF4}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{E24FE321-EF7B-4D4E-8084-58E92BD36AF4}.Debug|x86.ActiveCfg = Debug|x86
+		{E24FE321-EF7B-4D4E-8084-58E92BD36AF4}.Debug|x86.Build.0 = Debug|x86
+		{E24FE321-EF7B-4D4E-8084-58E92BD36AF4}.Release|Any CPU.ActiveCfg = Release|x86
+		{E24FE321-EF7B-4D4E-8084-58E92BD36AF4}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{E24FE321-EF7B-4D4E-8084-58E92BD36AF4}.Release|Mixed Platforms.Build.0 = Release|x86
+		{E24FE321-EF7B-4D4E-8084-58E92BD36AF4}.Release|x86.ActiveCfg = Release|x86
+		{E24FE321-EF7B-4D4E-8084-58E92BD36AF4}.Release|x86.Build.0 = Release|x86
+		{9336227D-4A31-4E09-8BA8-6398625E2561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9336227D-4A31-4E09-8BA8-6398625E2561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9336227D-4A31-4E09-8BA8-6398625E2561}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9336227D-4A31-4E09-8BA8-6398625E2561}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9336227D-4A31-4E09-8BA8-6398625E2561}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9336227D-4A31-4E09-8BA8-6398625E2561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9336227D-4A31-4E09-8BA8-6398625E2561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9336227D-4A31-4E09-8BA8-6398625E2561}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9336227D-4A31-4E09-8BA8-6398625E2561}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9336227D-4A31-4E09-8BA8-6398625E2561}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
