@@ -38,9 +38,12 @@
             this.closeApp = new System.Windows.Forms.Button();
             this.generateChart = new System.Windows.Forms.Button();
             this.createDatabase = new System.Windows.Forms.Button();
+            this.uploadData = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -49,10 +52,11 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.chart1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87F));
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -69,9 +73,9 @@
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(3, 3);
+            this.chart1.Location = new System.Drawing.Point(0, 0);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(1044, 550);
+            this.chart1.Size = new System.Drawing.Size(908, 550);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -81,16 +85,17 @@
             this.flowLayoutPanel1.Controls.Add(this.closeApp);
             this.flowLayoutPanel1.Controls.Add(this.generateChart);
             this.flowLayoutPanel1.Controls.Add(this.createDatabase);
+            this.flowLayoutPanel1.Controls.Add(this.uploadData);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(317, 563);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 187);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(416, 47);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(130, 182);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // closeApp
             // 
             this.closeApp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.closeApp.Location = new System.Drawing.Point(289, 3);
+            this.closeApp.Location = new System.Drawing.Point(3, 3);
             this.closeApp.Name = "closeApp";
             this.closeApp.Size = new System.Drawing.Size(124, 33);
             this.closeApp.TabIndex = 1;
@@ -101,7 +106,7 @@
             // generateChart
             // 
             this.generateChart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.generateChart.Location = new System.Drawing.Point(155, 3);
+            this.generateChart.Location = new System.Drawing.Point(-1, 42);
             this.generateChart.Name = "generateChart";
             this.generateChart.Size = new System.Drawing.Size(128, 33);
             this.generateChart.TabIndex = 0;
@@ -112,13 +117,33 @@
             // createDatabase
             // 
             this.createDatabase.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.createDatabase.Location = new System.Drawing.Point(21, 3);
+            this.createDatabase.Location = new System.Drawing.Point(-1, 81);
             this.createDatabase.Name = "createDatabase";
             this.createDatabase.Size = new System.Drawing.Size(128, 33);
             this.createDatabase.TabIndex = 2;
             this.createDatabase.Text = "Create Database";
             this.createDatabase.UseVisualStyleBackColor = true;
             this.createDatabase.Click += new System.EventHandler(this.createDatabase_Click);
+            // 
+            // uploadData
+            // 
+            this.uploadData.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.uploadData.Location = new System.Drawing.Point(-1, 120);
+            this.uploadData.Name = "uploadData";
+            this.uploadData.Size = new System.Drawing.Size(128, 33);
+            this.uploadData.TabIndex = 3;
+            this.uploadData.Text = "Upload Data";
+            this.uploadData.UseVisualStyleBackColor = true;
+            this.uploadData.Click += new System.EventHandler(this.uploadData_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.chart1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(139, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(908, 550);
+            this.panel1.TabIndex = 2;
             // 
             // Form1
             // 
@@ -133,6 +158,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -146,6 +172,8 @@
         private System.Windows.Forms.Button closeApp;
         private System.Windows.Forms.Button generateChart;
         private System.Windows.Forms.Button createDatabase;
+        private System.Windows.Forms.Button uploadData;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

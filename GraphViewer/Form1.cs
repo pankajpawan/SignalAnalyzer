@@ -96,5 +96,11 @@ namespace GraphViewer
         {
 
         }
+
+        private void uploadData_Click(object sender, EventArgs e)
+        {
+            Form uploadForm = new uploadDataForm();
+            uploadForm.Show();
+        }
     }
 }
