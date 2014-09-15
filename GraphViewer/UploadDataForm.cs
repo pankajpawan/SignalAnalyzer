@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -16,6 +17,14 @@ namespace GraphViewer
         {
             InitializeComponent();
             InitializeOpenFileDialog();
+            
+            this.Load += new EventHandler(uploadDataForm_Load);        
+        }
+
+        private void uploadDataForm_Load(object sender, EventArgs e)
+        {
+            this.AutoValidate = AutoValidate.Disable;
+
         }
 
         private void InitializeOpenFileDialog()
@@ -40,7 +49,18 @@ namespace GraphViewer
         }
         private void uploadToDatabaseButton_Click(object sender, EventArgs e)
         {
-            //sanity check
+            //check validation
+            if (!this.ValidateChildren())
+                return;
+            bool status = Library.uploadCsvData(uploadFileName.Text, dateTimePicker1.Value, Convert.ToInt32(pipeLineID.Text));
+
+            if (status)
+            {
+                MessageBox.Show("Data successfully uploaded");
+                this.Close();
+            }             
+            else
+                MessageBox.Show("upload failed");
         }
 
         private void pipeLineID_Validating(object sender, CancelEventArgs e)
@@ -54,6 +74,24 @@ namespace GraphViewer
             else
             {
                 errorProvider1.SetError(pipeLineID, "");
+            }
+        }
+
+        private void cancelUpload_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void uploadFileName_Validating(object sender, CancelEventArgs e)
+        {
+            if (uploadFileName.Text.Length == 0 || !File.Exists(uploadFileName.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(selectUploadFile, "Please select a valid file");
+            }
+            else
+            {
+                errorProvider1.SetError(selectUploadFile, "");
             }
         }         
     }
