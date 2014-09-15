@@ -40,6 +40,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.uploadToDatabaseButton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.selectUploadFile = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -49,13 +50,14 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.62539F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.37461F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pipeLineID, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.uploadDate, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.uploadFileName, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.selectUploadFile, 2, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(111, 86);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -73,7 +75,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 30);
+            this.label2.Size = new System.Drawing.Size(72, 30);
             this.label2.TabIndex = 3;
             this.label2.Text = "PipeLine ID";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -81,10 +83,10 @@
             // pipeLineID
             // 
             this.pipeLineID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pipeLineID.Location = new System.Drawing.Point(83, 33);
+            this.pipeLineID.Location = new System.Drawing.Point(81, 33);
             this.pipeLineID.MaxLength = 32000;
             this.pipeLineID.Name = "pipeLineID";
-            this.pipeLineID.Size = new System.Drawing.Size(216, 20);
+            this.pipeLineID.Size = new System.Drawing.Size(208, 20);
             this.pipeLineID.TabIndex = 1;
             this.pipeLineID.Validating += new System.ComponentModel.CancelEventHandler(this.pipeLineID_Validating);
             // 
@@ -96,7 +98,7 @@
             this.uploadDate.AutoSize = true;
             this.uploadDate.Location = new System.Drawing.Point(3, 0);
             this.uploadDate.Name = "uploadDate";
-            this.uploadDate.Size = new System.Drawing.Size(74, 30);
+            this.uploadDate.Size = new System.Drawing.Size(72, 30);
             this.uploadDate.TabIndex = 2;
             this.uploadDate.Text = "Select Date";
             this.uploadDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -104,19 +106,19 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(83, 7);
+            this.dateTimePicker1.Location = new System.Drawing.Point(81, 7);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(216, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(208, 20);
             this.dateTimePicker1.TabIndex = 0;
             // 
             // uploadFileName
             // 
             this.uploadFileName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uploadFileName.Location = new System.Drawing.Point(83, 63);
+            this.uploadFileName.Location = new System.Drawing.Point(81, 63);
             this.uploadFileName.Name = "uploadFileName";
-            this.uploadFileName.Size = new System.Drawing.Size(216, 20);
+            this.uploadFileName.ReadOnly = true;
+            this.uploadFileName.Size = new System.Drawing.Size(208, 20);
             this.uploadFileName.TabIndex = 5;
-            this.uploadFileName.Enter += new System.EventHandler(this.uploadFileName_Enter);
             // 
             // label1
             // 
@@ -126,7 +128,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 31);
+            this.label1.Size = new System.Drawing.Size(72, 31);
             this.label1.TabIndex = 4;
             this.label1.Text = "Select File";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -148,6 +150,16 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // selectUploadFile
+            // 
+            this.selectUploadFile.Location = new System.Drawing.Point(295, 63);
+            this.selectUploadFile.Name = "selectUploadFile";
+            this.selectUploadFile.Size = new System.Drawing.Size(25, 23);
+            this.selectUploadFile.TabIndex = 6;
+            this.selectUploadFile.Text = "...";
+            this.selectUploadFile.UseVisualStyleBackColor = true;
+            this.selectUploadFile.Click += new System.EventHandler(this.uploadFileName_Enter);
             // 
             // uploadDataForm
             // 
@@ -179,6 +191,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button uploadToDatabaseButton;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button selectUploadFile;
 
     }
 }

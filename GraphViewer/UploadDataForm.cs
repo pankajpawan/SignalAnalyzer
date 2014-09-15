@@ -15,9 +15,10 @@ namespace GraphViewer
         public uploadDataForm()
         {
             InitializeComponent();
+            InitializeOpenFileDialog();
         }
 
-        private void uploadFileName_Enter(object sender, EventArgs e)
+        private void InitializeOpenFileDialog()
         {
             openFileDialog1.Filter =
                 "Images (*.csv)|*.csv";
@@ -26,8 +27,10 @@ namespace GraphViewer
             openFileDialog1.Multiselect = false;
             openFileDialog1.Title = "Select file to upload";
             openFileDialog1.FileName = "";
+        }
 
-
+        private void uploadFileName_Enter(object sender, EventArgs e)
+        {
             DialogResult dr = openFileDialog1.ShowDialog();
 
             if (dr == System.Windows.Forms.DialogResult.OK)

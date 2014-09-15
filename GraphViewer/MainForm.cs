@@ -13,10 +13,10 @@ using DBManager = DatabaseManager.DatabaseManager;
 
 namespace GraphViewer
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         SQLiteConnection m_dbConnection;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             InitializeOpenFileDialog();
