@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace GraphViewer
@@ -16,12 +17,7 @@ namespace GraphViewer
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_Click(object sender, EventArgs e)
+        private void uploadFileName_Enter(object sender, EventArgs e)
         {
             openFileDialog1.Filter =
                 "Images (*.csv)|*.csv";
@@ -36,14 +32,26 @@ namespace GraphViewer
 
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
-                textBox2.Text = openFileDialog1.FileName;
+                uploadFileName.Text = openFileDialog1.FileName;
             }
         }
-
         private void uploadToDatabaseButton_Click(object sender, EventArgs e)
         {
-
+            //sanity check
         }
-        
+
+        private void pipeLineID_Validating(object sender, CancelEventArgs e)
+        {
+            if (!(Regex.IsMatch(pipeLineID.Text, @"^\d{4}$")))
+            {
+                e.Cancel = true;
+                pipeLineID.Select(0, pipeLineID.Text.Length);
+                errorProvider1.SetError(pipeLineID, "Please enter a 4 digit number only");
+            }
+            else
+            {
+                errorProvider1.SetError(pipeLineID, "");
+            }
+        }         
     }
 }
