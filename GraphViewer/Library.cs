@@ -13,13 +13,13 @@ namespace GraphViewer
 
         public static bool uploadCsvData(string filename, DateTime date, int pipeLine)
         {
-            List<double> t = new List<double>();
-            List<double> s = new List<double>();
+            //List<double> t = new List<double>();
+            //List<double> s = new List<double>();
 
-            Utility.readCsvFile(filename,ref t,ref s);
+            //Utility.readCsvFile(filename,ref t,ref s);
 
-            byte[] time = Utility.getByteArray(t.ToArray());
-            byte[] signal = Utility.getByteArray(s.ToArray());
+            //byte[] time = Utility.getByteArray(t.ToArray());
+            //byte[] signal = Utility.getByteArray(s.ToArray());
 
             DBManager db = DBManager.getInstance( dbName );
 
@@ -32,7 +32,7 @@ namespace GraphViewer
                 //create the table
                 db.createTable();
                 //upload data
-                db.uploadData(date, pipeLine, ref time, ref signal);
+                db.uploadData(date, pipeLine, filename/*ref time, ref signal*/);
                 return true;
             }
             catch (Exception e)
