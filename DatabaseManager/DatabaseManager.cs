@@ -27,7 +27,7 @@ namespace DatabaseManager
         private string insertQuery = @"INSERT INTO pipeline_data(survey_date, pipeline_id, data_file, date_ins)" +
                                             "VALUES(@survey_date, @pipeline_id, @data_file, DATETIME('now'))";
 
-        private string selectQuery = @"SELECT survey_date, pipeline_id, data_file, date_ins FROM pipeline_data WHERE survey_date = @survery_date";
+        private string selectQuery = @"SELECT survey_date, pipeline_id, date_ins, data_file FROM pipeline_data";// WHERE survey_date = @survery_date";
 
         private string fetchAllValidEntries = @"SELECT survey_date, pipeline_id, date_ins FROM pipeline_data";
 
@@ -115,9 +115,7 @@ namespace DatabaseManager
         {
             //if (this.dbConnection == null)
             connectToDatabase();
-            DataSet ds = new DataSet();
-            var da = new SQLiteDataAdapter(this.fetchAllValidEntries, this.dbConnection);
-            da.Fill(ds);
+            var da = new SQLiteDataAdapter(this.selectQuery, this.dbConnection);
             return da;
         }
     }

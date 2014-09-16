@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -39,8 +39,9 @@
             this.createDatabase = new System.Windows.Forms.Button();
             this.uploadData = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.selectDateandPipeline = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.homeScreen = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -53,6 +54,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87F));
@@ -70,23 +72,24 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel1.Controls.Add(this.closeApp);
+            this.flowLayoutPanel1.Controls.Add(this.homeScreen);
             this.flowLayoutPanel1.Controls.Add(this.generateChart);
             this.flowLayoutPanel1.Controls.Add(this.createDatabase);
             this.flowLayoutPanel1.Controls.Add(this.uploadData);
             this.flowLayoutPanel1.Controls.Add(this.selectDateandPipeline);
+            this.flowLayoutPanel1.Controls.Add(this.closeApp);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 173);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 162);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(130, 210);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(130, 231);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // closeApp
             // 
             this.closeApp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.closeApp.Location = new System.Drawing.Point(3, 3);
+            this.closeApp.Location = new System.Drawing.Point(-1, 198);
             this.closeApp.Name = "closeApp";
-            this.closeApp.Size = new System.Drawing.Size(124, 36);
+            this.closeApp.Size = new System.Drawing.Size(128, 33);
             this.closeApp.TabIndex = 1;
             this.closeApp.Text = "Close App";
             this.closeApp.UseVisualStyleBackColor = true;
@@ -95,7 +98,7 @@
             // generateChart
             // 
             this.generateChart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.generateChart.Location = new System.Drawing.Point(-1, 45);
+            this.generateChart.Location = new System.Drawing.Point(-1, 42);
             this.generateChart.Name = "generateChart";
             this.generateChart.Size = new System.Drawing.Size(128, 33);
             this.generateChart.TabIndex = 0;
@@ -106,18 +109,19 @@
             // createDatabase
             // 
             this.createDatabase.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.createDatabase.Location = new System.Drawing.Point(-1, 84);
+            this.createDatabase.Location = new System.Drawing.Point(-1, 81);
             this.createDatabase.Name = "createDatabase";
             this.createDatabase.Size = new System.Drawing.Size(128, 33);
             this.createDatabase.TabIndex = 2;
             this.createDatabase.Text = "Create Database";
             this.createDatabase.UseVisualStyleBackColor = true;
+            this.createDatabase.Visible = false;
             this.createDatabase.Click += new System.EventHandler(this.createDatabase_Click);
             // 
             // uploadData
             // 
             this.uploadData.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.uploadData.Location = new System.Drawing.Point(-1, 123);
+            this.uploadData.Location = new System.Drawing.Point(-1, 120);
             this.uploadData.Name = "uploadData";
             this.uploadData.Size = new System.Drawing.Size(128, 33);
             this.uploadData.TabIndex = 3;
@@ -127,6 +131,8 @@
             // 
             // panel1
             // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.Controls.Add(this.chart1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(139, 3);
@@ -134,29 +140,41 @@
             this.panel1.Size = new System.Drawing.Size(908, 550);
             this.panel1.TabIndex = 2;
             // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(0, 0);
-            this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(908, 550);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
-            // 
             // selectDateandPipeline
             // 
             this.selectDateandPipeline.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.selectDateandPipeline.Location = new System.Drawing.Point(-1, 162);
+            this.selectDateandPipeline.Location = new System.Drawing.Point(-1, 159);
             this.selectDateandPipeline.Name = "selectDateandPipeline";
             this.selectDateandPipeline.Size = new System.Drawing.Size(128, 33);
             this.selectDateandPipeline.TabIndex = 4;
             this.selectDateandPipeline.Text = "Select Date";
             this.selectDateandPipeline.UseVisualStyleBackColor = true;
             this.selectDateandPipeline.Click += new System.EventHandler(this.selectDateandPipeline_Click);
+            // 
+            // chart1
+            // 
+            this.chart1.BackImageTransparentColor = System.Drawing.Color.White;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(908, 550);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
+            // homeScreen
+            // 
+            this.homeScreen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.homeScreen.Location = new System.Drawing.Point(-1, 3);
+            this.homeScreen.Name = "homeScreen";
+            this.homeScreen.Size = new System.Drawing.Size(128, 33);
+            this.homeScreen.TabIndex = 5;
+            this.homeScreen.Text = "Home Screen";
+            this.homeScreen.UseVisualStyleBackColor = true;
+            this.homeScreen.Click += new System.EventHandler(this.homeScreen_Click);
             // 
             // MainForm
             // 
@@ -180,7 +198,6 @@
 
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button closeApp;
         private System.Windows.Forms.Button generateChart;
@@ -188,6 +205,8 @@
         private System.Windows.Forms.Button uploadData;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button selectDateandPipeline;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button homeScreen;
     }
 }
 

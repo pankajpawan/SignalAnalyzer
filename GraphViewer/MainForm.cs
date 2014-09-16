@@ -16,6 +16,10 @@ namespace GraphViewer
     public partial class MainForm : Form
     {
         SQLiteConnection m_dbConnection;
+        private int pipeline;
+        private string filename;
+        private DateTime survey_date;
+
         public MainForm()
         {
             InitializeComponent();
@@ -32,21 +36,36 @@ namespace GraphViewer
             openFileDialog1.Multiselect = true;
             openFileDialog1.Title = "Select files to plot";
             openFileDialog1.FileName = "";
+            chart1.Hide();
         }
 
-        private void generateSeriesFromFile(String filename)
+        private void generateSeriesFromFile(String filename, DateTime survey_date, int pipeline = 0)
         {
             //var reader = new StreamReader(File.OpenRead(@"C:\Users\Utsav\Desktop\200 Hours Test Data\200 Hours Test Data\scope_1.csv"));
             var reader = new StreamReader(File.OpenRead(filename));
-            string seriesName = filename.Substring(filename.LastIndexOf('\\'));
+
+            string seriesName;
+            Color randomColor;
+            if (pipeline == 0)
+            {
+                seriesName = filename.Substring(filename.LastIndexOf('\\'));
+                Random randomGen = new Random();
+                KnownColor[] names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+                KnownColor randomColorName = names[randomGen.Next(names.Length)];
+                randomColor = Color.FromKnownColor(randomColorName);
+            }
+            else
+            {
+                seriesName = survey_date.ToString() + @"|" + pipeline.ToString();
+                var random = new Random();
+                string color = String.Format("#{0:X6}", random.Next(0x1000000) & 0x7F7F7F);
+                randomColor = System.Drawing.ColorTranslator.FromHtml(color);
+            }
             
             chart1.Series.Add(seriesName);
             chart1.Series[seriesName].ChartType = SeriesChartType.FastLine;
 
-            Random randomGen = new Random();
-            KnownColor[] names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
-            KnownColor randomColorName = names[randomGen.Next(names.Length)];
-            Color randomColor = Color.FromKnownColor(randomColorName);
+            
 
             chart1.Series[seriesName].Color = randomColor;
             while (!reader.EndOfStream)
@@ -65,6 +84,7 @@ namespace GraphViewer
                     continue;
                 }
             }
+            chart1.Show();
         }
 
         private void closeApp_Click(object sender, EventArgs e)
@@ -82,7 +102,7 @@ namespace GraphViewer
             {
                 foreach (String file in openFileDialog1.FileNames)
                 {
-                    generateSeriesFromFile(file);
+                    generateSeriesFromFile(file, DateTime.Today);
                 }
             }
         }
@@ -100,13 +120,33 @@ namespace GraphViewer
         private void uploadData_Click(object sender, EventArgs e)
         {
             Form uploadForm = new uploadDataForm();
-            uploadForm.Show();
+            uploadForm.ShowDialog();
         }
 
         private void selectDateandPipeline_Click(object sender, EventArgs e)
         {
-            Form metaInfo = new SelectMetaInfo();
-            metaInfo.Show();
+            SelectMetaInfo metaInfo = new SelectMetaInfo();
+            if (metaInfo.ShowDialog() == DialogResult.OK)
+            {
+                this.pipeline = metaInfo.pipeline;
+                this.survey_date = metaInfo.survey_date;
+                this.filename = metaInfo.filename;
+
+                chart1.Series.Clear();
+
+                generateSeriesFromFile(this.filename, this.survey_date, this.pipeline);
+                chart1.Show();
+            }
+            else
+            {
+                MessageBox.Show("No plot selected for plotting");
+            }
+            
+        }
+
+        private void homeScreen_Click(object sender, EventArgs e)
+        {
+            chart1.Hide();
         }
     }
 }
