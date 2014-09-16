@@ -156,6 +156,7 @@
             this.selectDateandPipeline.TabIndex = 4;
             this.selectDateandPipeline.Text = "Select Date";
             this.selectDateandPipeline.UseVisualStyleBackColor = true;
+            this.selectDateandPipeline.Click += new System.EventHandler(this.selectDateandPipeline_Click);
             // 
             // MainForm
             // 

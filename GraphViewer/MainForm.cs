@@ -102,5 +102,11 @@ namespace GraphViewer
             Form uploadForm = new uploadDataForm();
             uploadForm.Show();
         }
+
+        private void selectDateandPipeline_Click(object sender, EventArgs e)
+        {
+            Form metaInfo = new SelectMetaInfo();
+            metaInfo.Show();
+        }
     }
 }

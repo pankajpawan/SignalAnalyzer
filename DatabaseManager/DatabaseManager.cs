@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Data.SQLite;
+using System.Data;
 
 namespace DatabaseManager
 {
@@ -98,6 +99,8 @@ namespace DatabaseManager
                 return 0;
             }
         }
+
+        
         public void CloseConnection()
         {
             if (this.dbConnection != null)
@@ -107,5 +110,15 @@ namespace DatabaseManager
             }
         }
 
+
+        public SQLiteDataAdapter fetchMetaInfo()
+        {
+            //if (this.dbConnection == null)
+            connectToDatabase();
+            DataSet ds = new DataSet();
+            var da = new SQLiteDataAdapter(this.fetchAllValidEntries, this.dbConnection);
+            da.Fill(ds);
+            return da;
+        }
     }
 }
